@@ -15,9 +15,14 @@ public class StrCalcTest {
     public void inputEmptyString() {
         assertEquals(stringCalculator.add(""), 0);
     }
-    
+
     @Test
     public void inputOneNumber() {
         assertEquals(stringCalculator.add("3"), 3);
+    }
+
+    public void inputMoreNumber() {
+        assertEquals(stringCalculator.add("1,6"), 7);
+        assertEquals(stringCalculator.add("1,2,3,4"), 10);
     }
 }
