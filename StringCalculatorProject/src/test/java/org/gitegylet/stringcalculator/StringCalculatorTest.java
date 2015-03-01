@@ -1,5 +1,7 @@
 package org.gitegylet.stringcalculator;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -41,5 +43,14 @@ public class StringCalculatorTest {
     @Test(expected = NegativeNumberException.class)
     public void inputNegativeNumber() throws NegativeNumberException {
         stringCalculator.add("-3,2,3,-1");
+    }
+
+    @Test
+    public void checkEcxeptionMessage() {
+        try {
+            stringCalculator.add("1,-2,3,4,-5");
+        } catch (NegativeNumberException ex) {
+            assertEquals(ex.getMessage(), "Negatives not allowed: -2, -5");
+        }
     }
 }
